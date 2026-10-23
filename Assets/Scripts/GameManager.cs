@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver { get; private set; }
     public CellState Winner { get; private set; } = CellState.Empty;
     
+    // Contenedor de celdas
+    [SerializeField] private GameObject cellPrefab;
+    [SerializeField] private Transform cellsContainer;
+    
     // Singleton
     public static GameManager Instance  { get; private set; }
 
@@ -30,6 +34,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // genera el tablero vacio
+        if (cellPrefab &&  cellsContainer)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                // crea una instancia de la celda
+                GameObject cell = Instantiate(cellPrefab, cellsContainer);
+                // obtiene el componente BoardCell del GameObject
+                BoardCell boardCell = cell.GetComponent<BoardCell>();
+                // asigna la fila y columna a la celda
+                boardCell.Row = i / 3;
+                boardCell.Col = i % 3;
+            }
+        }
+    }
 
     // Intenta realizar una jugada en la posición (row, col)
     public bool PlayMove(int row, int col)

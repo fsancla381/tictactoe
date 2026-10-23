@@ -6,6 +6,17 @@ public class BoardCell : MonoBehaviour
 {
     [SerializeField] private int row;
     [SerializeField] private int col;
+    // getter y setter para los campos serializados
+    public int Row
+    {
+        get => row;
+        set => row = value;
+    }
+    public int Col
+    {
+        get => col;
+        set => col = value;
+    }
 
     [SerializeField] private TextMeshProUGUI cellText;
     
