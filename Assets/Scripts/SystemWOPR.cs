@@ -7,8 +7,6 @@ public class SystemWOPR : MonoBehaviour
 {
    [SerializeField] private CellState playerPiece = CellState.X;
    
-   [SerializeField] private UIManager uiManager;
-   
    private void Update()
    {
       if (GameManager.Instance.IsGameOver)
@@ -19,7 +17,6 @@ public class SystemWOPR : MonoBehaviour
       if (GameManager.Instance.CurrentTurn == playerPiece)
       {
          Move(playerPiece);
-         uiManager.UpdateUI();
       } 
    }
    

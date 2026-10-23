@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,6 @@ public class BoardCell : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI cellText;
     
-    [SerializeField] private UIManager uiManager;
     
     // respuesta al onClick
     public void OnClick()
@@ -19,13 +19,10 @@ public class BoardCell : MonoBehaviour
         } 
         
         // Intentar hacer la jugada
-        if (GameManager.Instance.PlayMove(row, col))
-        {
-            uiManager.UpdateUI();
-        }
+        GameManager.Instance.PlayMove(row, col);
     }
 
-    public void Refresh()
+    private void Update()
     {
         CellState state = GameManager.Instance.Board[row, col];
         cellText.text = (state == CellState.Empty) ? "" : state.ToString();

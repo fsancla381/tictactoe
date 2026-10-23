@@ -163,8 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0463a24d3e9638a4a8ca507f9abb29c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SystemWOPR
-  playerPiece: 1
-  uiManager: {fileID: 1599824188}
+  playerPiece: 0
 --- !u!1 &336711228
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +631,6 @@ MonoBehaviour:
   row: 2
   col: 0
   cellText: {fileID: 710931202}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &453785290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1270,6 @@ MonoBehaviour:
   row: 1
   col: 0
   cellText: {fileID: 495954241}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1503,6 @@ MonoBehaviour:
   row: 0
   col: 0
   cellText: {fileID: 1751880942}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &710931200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1789,6 @@ MonoBehaviour:
   row: 0
   col: 1
   cellText: {fileID: 336711230}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &1020673285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SystemWOPR
   playerPiece: 2
-  uiManager: {fileID: 1599824188}
 --- !u!4 &1302399617
 Transform:
   m_ObjectHideFlags: 0
@@ -2372,7 +2366,6 @@ MonoBehaviour:
   row: 1
   col: 2
   cellText: {fileID: 408880474}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &1382827407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2515,6 @@ MonoBehaviour:
   row: 2
   col: 2
   cellText: {fileID: 1152488481}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &1400823606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,16 +2982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41ff917b2b21d9438e7ee51a00bd732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  boardsCell:
-  - {fileID: 640448472}
-  - {fileID: 910353759}
-  - {fileID: 1949779930}
-  - {fileID: 602939461}
-  - {fileID: 2098861574}
-  - {fileID: 1318980592}
-  - {fileID: 447716351}
-  - {fileID: 1652982313}
-  - {fileID: 1382827413}
   statusText: {fileID: 1400823608}
 --- !u!1 &1652982307
 GameObject:
@@ -3150,7 +3132,6 @@ MonoBehaviour:
   row: 2
   col: 1
   cellText: {fileID: 2001647517}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &1751880940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,7 +3551,6 @@ MonoBehaviour:
   row: 0
   col: 2
   cellText: {fileID: 1496381679}
-  uiManager: {fileID: 1599824188}
 --- !u!1 &2001647515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,7 +3837,6 @@ MonoBehaviour:
   row: 1
   col: 1
   cellText: {fileID: 453785292}
-  uiManager: {fileID: 1599824188}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

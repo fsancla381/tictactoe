@@ -1,13 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     
-    [SerializeField] private BoardCell[] boardsCell;
-
     [SerializeField] private TextMeshProUGUI statusText;
-    
     
     void Start()
     {
@@ -24,18 +22,10 @@ public class UIManager : MonoBehaviour
     {
         // Limpia el Tablero (modelo)
         GameManager.Instance.StartNewGame();
-        // Actualiza la interface de usuario
-        UpdateUI();
     }
 
-    public void UpdateUI()
+    private void Update()
     {
-        // Actualiza el símbolo de cada celda en pantalla
-        foreach (BoardCell boardCell in boardsCell)
-        {
-            boardCell.Refresh();
-        }
-        
         // Actualiza el texto de estado
         if (GameManager.Instance.IsGameOver)
         {
