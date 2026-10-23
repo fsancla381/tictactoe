@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     private void Reset()
     {
         // Limpia el Tablero (modelo)
-        GameManager.StartNewGame();
+        GameManager.Instance.StartNewGame();
         // Actualiza la interface de usuario
         UpdateUI();
     }
@@ -37,22 +37,22 @@ public class UIManager : MonoBehaviour
         }
         
         // Actualiza el texto de estado
-        if (GameManager.IsGameOver)
+        if (GameManager.Instance.IsGameOver)
         {
             // poner ganador o empate
-            if (GameManager.Winner == CellState.Empty)
+            if (GameManager.Instance.Winner == CellState.Empty)
             {
                 statusText.text = "¡ Empate !";
             }
             else
             {
-                statusText.text = $"¡ Ganador: {GameManager.Winner} !";
+                statusText.text = $"¡ Ganador: {GameManager.Instance.Winner} !";
             }
         }
         else
         {
             // informar del turno actual
-            statusText.text = $"Turno actual: {GameManager.CurrentTurn}";
+            statusText.text = $"Turno actual: {GameManager.Instance.CurrentTurn}";
         }
     }
 }

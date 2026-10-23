@@ -1,17 +1,38 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
 public enum CellState { Empty, X, O }
 
-public static class GameManager
+public class GameManager : MonoBehaviour
 {
     // Tablero de 3x3 celdas
-    public static CellState[,] Board { get; private set; } = new CellState[3, 3];
-    public static CellState CurrentTurn { get; private set; } = CellState.X;
-    public static bool IsGameOver { get; private set; }
-    public static CellState Winner { get; private set; } = CellState.Empty;
+    public CellState[,] Board { get; private set; } = new CellState[3, 3];
+    public CellState CurrentTurn { get; private set; } = CellState.X;
+    public bool IsGameOver { get; private set; }
+    public CellState Winner { get; private set; } = CellState.Empty;
     
-    
-    
+    // Singleton
+    public static GameManager Instance  { get; private set; }
+
+    private void Awake()
+    {
+        // verifica si existe alguna instancia del GameManager previa
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // si ya existe una instancia previa, eliminar este objeto (suicidio)
+            Destroy(gameObject);
+        }
+    }
+
+
     // Intenta realizar una jugada en la posición (row, col)
-    public static bool PlayMove(int row, int col)
+    public bool PlayMove(int row, int col)
     {
         // comprobar si el juego terminó o la casilla ya está ocupada
         if (IsGameOver || Board[row, col] != CellState.Empty)
@@ -41,7 +62,7 @@ public static class GameManager
         return true;
     }
 
-    public static void StartNewGame()
+    public void StartNewGame()
     {
         Board = new CellState[3, 3];
         CurrentTurn = CellState.X;
@@ -49,7 +70,7 @@ public static class GameManager
         Winner = CellState.Empty;
     }
 
-    private static bool IsBoardFull()
+    private bool IsBoardFull()
     {
         // Recorrer el tablero en busca de una casilla vacía (CellState.Empty)
         foreach (CellState cell in Board)
@@ -60,7 +81,7 @@ public static class GameManager
         return true;
     }
 
-    public static bool CheckWin(int row, int col)
+    public bool CheckWin(int row, int col)
     {
         // Comprobar la fila en la que estoy
         if (Board[row, 0] == CurrentTurn && Board[row, 1] == CurrentTurn && Board[row, 2] == CurrentTurn)
